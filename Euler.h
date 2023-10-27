@@ -24,3 +24,9 @@ int Problem_1(const int value_);
 @return Наибольший палиндром
 */
 long long int Problem_4();
+
+/*
+@brief Найти самое маленькое число, которое делится нацело на все числа от 1 до 20
+@return самое маленькое число
+*/
+long long int Problem_5();

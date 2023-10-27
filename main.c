@@ -3,7 +3,7 @@
 #include "functions.h"
 #include "Euler.h"
 
-
+/*
 int main()
 {
 	/*
@@ -16,11 +16,18 @@ int main()
 	//600851475143
 	printf("%llu\n", Problem_3(value));
 	*/
-	
+
 	/*
 	int value = 1000;
 	printf("%d\n", Problem_1(value));
 	*/
 
-	return 0;
-}
+	/*
+	printf("%d\n", Problem_4());
+	*/
+
+	/*
+	printf("%lld\n", Problem_5());
+	*/
+//	return 0;
+//}

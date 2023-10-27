@@ -10,7 +10,7 @@ unsigned long long Problem_2(const unsigned int value_)
 	unsigned long long sum = 0;
 	unsigned int fib_1 = 1;
 	unsigned int fib_2 = 2;
-	
+
 
 	while (fib_2 < value_)
 	{
@@ -66,6 +66,26 @@ int Problem_1(const int value_)
 
 long long int Problem_4()
 {
+	int maxPalindrome = 0;
+	for (int i = 100; i <= 999; i++) 
+	{
+		for (int j = 100; j <= 999; j++) 
+		{
+			int product = i * j; if (isPalindrome(product) && product > maxPalindrome) 
+			{
+				maxPalindrome = product;
+			}
+		}
+	}
+	return maxPalindrome;
+}
 
-	return 0;
+long long int Problem_5()
+{
+	long long result = 1;
+	for (int i = 1; i <= 20; i++)
+	{
+		result = lcm(result, i);
+	}
+	return result;
 }
