@@ -1,67 +1,78 @@
-#include <stdio.h>
+п»ї#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <locale.h>
 
-int main() {
-	setlocale(LC_ALL, "Rus");
-	BullsAndCows();
-}
-
-int BullsAndCows() {
-	// Настройка генератора случайных чисел
+int BullsAndCows() 
+{
+	// РќР°СЃС‚СЂРѕР№РєР° РіРµРЅРµСЂР°С‚РѕСЂР° СЃР»СѓС‡Р°Р№РЅС‹С… С‡РёСЃРµР»
 	srand(time(NULL));
 
-	// Генерация случайного четырехзначного числа
+	// Р“РµРЅРµСЂР°С†РёСЏ СЃР»СѓС‡Р°Р№РЅРѕРіРѕ С‡РµС‚С‹СЂРµС…Р·РЅР°С‡РЅРѕРіРѕ С‡РёСЃР»Р°
 	int secretNumber = 1000 + rand() % 9000;
+	int x = secretNumber;
+	printf("%d\n", secretNumber);
+	
+
+	int secretDigits[4];
+	for (int i = 3; i >= 0; i--)
+	{
+		secretDigits[i] = secretNumber % 10;
+		secretNumber /= 10;
+	}
+
 
 	int guess, bulls, cows;
 	bulls = cows = 0;
 
-	printf("Добро пожаловать в игру 'Быки и коровы'!\n");
-	printf("Попробуйте угадать четырехзначное число.\n");
+	printf("Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ РІ РёРіСЂСѓ 'Р‘С‹РєРё Рё РєРѕСЂРѕРІС‹'!\n");
+	printf("РџРѕРїСЂРѕР±СѓР№С‚Рµ СѓРіР°РґР°С‚СЊ С‡РµС‚С‹СЂРµС…Р·РЅР°С‡РЅРѕРµ С‡РёСЃР»Рѕ:\n");
 
-	while (bulls != 4) {
-		// Запрос предполагаемого числа
-		printf("Введите вашу догадку: ");
+	while (bulls != 4) 
+	{
+		// Р—Р°РїСЂРѕСЃ РїСЂРµРґРїРѕР»Р°РіР°РµРјРѕРіРѕ С‡РёСЃР»Р°
+		printf("Р’РІРµРґРёС‚Рµ РІР°С€Сѓ РґРѕРіР°РґРєСѓ: ");
 		scanf_s("%d", &guess);
 
-		if (guess < 1000 || guess > 9999) {
-			printf("Пожалуйста, введите четырехзначное число.\n");
+		if (guess < 1000 || guess > 9999) 
+		{
+			printf("РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРІРµРґРёС‚Рµ С‡РµС‚С‹СЂРµС…Р·РЅР°С‡РЅРѕРµ С‡РёСЃР»Рѕ:\n");
 			continue;
 		}
 
-		// Разбиение чисел на отдельные цифры
-		int secretDigits[4], guessDigits[4];
-
-		for (int i = 3; i >= 0; i--) {
-			secretDigits[i] = secretNumber % 10;
+		// Р Р°Р·Р±РёРµРЅРёРµ С‡РёСЃРµР» РЅР° РѕС‚РґРµР»СЊРЅС‹Рµ С†РёС„СЂС‹
+		int guessDigits[4];
+		for (int i = 3; i >= 0; i--) 
+		{
 			guessDigits[i] = guess % 10;
-			secretNumber /= 10;
 			guess /= 10;
 		}
 
-		// Подсчет быков и коров
+		// РџРѕРґСЃС‡РµС‚ Р±С‹РєРѕРІ Рё РєРѕСЂРѕРІ
 		bulls = cows = 0;
 
-		for (int i = 0; i < 4; i++) {
-			if (guessDigits[i] == secretDigits[i]) {
+		for (int i = 0; i < 4; i++) 
+		{
+			if (guessDigits[i] == secretDigits[i]) 
+			{
 				bulls++;
 			}
 			else {
-				for (int j = 0; j < 4; j++) {
-					if (i != j && guessDigits[i] == secretDigits[j]) {
+				for (int j = 0; j < 4; j++) 
+				{
+					if (i != j && guessDigits[i] == secretDigits[j]) 
+					{
 						cows++;
 					}
 				}
 			}
 		}
 
-		// Вывод результата
-		printf("%d быков и %d коров\n", bulls, cows);
+		// Р’С‹РІРѕРґ СЂРµР·СѓР»СЊС‚Р°С‚Р°
+		printf("%d Р±С‹РєРѕРІ Рё %d РєРѕСЂРѕРІ\n", bulls, cows);
 	}
 
-	printf("Поздравляем! Вы угадали число %d!\n", secretNumber);
+	printf("РџРѕР·РґСЂР°РІР»СЏРµРј! Р’С‹ СѓРіР°РґР°Р»Рё С‡РёСЃР»Рѕ %d!\n", x);
 
 	return 0;
 }
