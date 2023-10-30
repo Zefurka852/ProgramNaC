@@ -1,9 +1,10 @@
 #include <stdio.h>
+#include <locale.h>
 
 #include "functions.h"
 #include "Euler.h"
 
-/*
+
 int main()
 {
 	/*
@@ -30,4 +31,7 @@ int main()
 	printf("%lld\n", Problem_5());
 	*/
 //	return 0;
-//}
+
+	setlocale(LC_ALL, "Rus");
+	BullsAndCows();
+}
