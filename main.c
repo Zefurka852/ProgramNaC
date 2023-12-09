@@ -1,8 +1,10 @@
 #include <stdio.h>
-#include <locale.h>
 
 #include "functions.h"
 #include "Euler.h"
+#include "str.h"
+
+#include <string.h>
 
 
 int main()
@@ -17,10 +19,12 @@ int main()
 	//600851475143
 	printf("%llu\n", Problem_3(value));
 	*/
-
+	
 	/*
 	int value = 1000;
-	printf("%d\n", Problem_1(value));
+	int a = 3;
+	int b = 5;
+	printf("%d\n", Problem_1(value, a, b));
 	*/
 
 	/*
@@ -30,8 +34,32 @@ int main()
 	/*
 	printf("%lld\n", Problem_5());
 	*/
-//	return 0;
 
+	/*
 	setlocale(LC_ALL, "Rus");
 	BullsAndCows();
+	*/
+
+	/*
+	char* str = "Admslk dlsj";
+	printf("%d\n", my_strlen(str));
+	*/
+
+	/*
+	char src[] = "Dlkjfqij";
+	char dst[30];
+	printf("%s\n", my_strcpy(dst, src));
+	*/
+
+	/*
+	char src[] = "Dlkjfqij";
+	char dst[] = "AKJdgh l";
+	printf("%s\n", my_strcat(dst, src));
+	*/
+
+	char* str1 = "ABCDEF";
+	char* str2 = "ABCDE";
+	printf("%d\n", my_strcmp(str1, str2));
+	
+	return 0;
 }
