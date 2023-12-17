@@ -25,9 +25,9 @@ int isPalindrome(int x)
 		temp /= 10;
 	}
 	if (rev == x) {
-		return 1; // Палиндром
+		return 1; // РџР°Р»РёРЅРґСЂРѕРј
 	}
-	return 0; // Не палиндром
+	return 0; // РќРµ РїР°Р»РёРЅРґСЂРѕРј
 }
 
 long long gcd(long long a, long long b) 

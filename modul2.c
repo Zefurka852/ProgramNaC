@@ -19,16 +19,16 @@ void shift_characters(char* str)
 
 void print_cars_info(struct Car* cars, int size) 
 {
-    printf("Машины, произведённые до 2005 года и зарегистрированные в 2005 году:\n");
+    printf("РњР°С€РёРЅС‹, РїСЂРѕРёР·РІРµРґС‘РЅРЅС‹Рµ РґРѕ 2005 РіРѕРґР° Рё Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹Рµ РІ 2005 РіРѕРґСѓ:\n");
 
     for (int i = 0; i < size; ++i) 
     {
         if (cars[i].year_of_manufacture < 2005 && strcmp(cars[i].registration_date, "2005") == 0) {
-            printf("Марка: %s\n", cars[i].brand);
-            printf("Производитель: %s\n", cars[i].manufacturer);
-            printf("Тип: %s\n", cars[i].type);
-            printf("Год выпуска: %d\n", cars[i].year_of_manufacture);
-            printf("Дата регистрации: %s\n", cars[i].registration_date);
+            printf("РњР°СЂРєР°: %s\n", cars[i].brand);
+            printf("РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊ: %s\n", cars[i].manufacturer);
+            printf("РўРёРї: %s\n", cars[i].type);
+            printf("Р“РѕРґ РІС‹РїСѓСЃРєР°: %d\n", cars[i].year_of_manufacture);
+            printf("Р”Р°С‚Р° СЂРµРіРёСЃС‚СЂР°С†РёРё: %s\n", cars[i].registration_date);
             printf("\n");
         }
     }
