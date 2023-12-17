@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+
+#include "str.h"
 
 unsigned int my_strlen(const char* str_)
 {
@@ -38,7 +41,7 @@ char* my_strcat(char* dst_, const char* src_)
 	{
 		dst_++;
 	}
-	
+
 	while (*src_)
 	{
 		*dst_ = *src_;
@@ -72,23 +75,64 @@ int my_strcmp(const char* str1_, const char* str2_)
 	}
 }
 
-int my_strstr(const char* str1_, const char* str_)
-{
 
-}
-
-/*
-char* fgetline(const FILE* f_)
+char* my_strstr(const char* str1_, const char* str2_) 
 {
-	unsigned int linelen = 0;
-	while (fgetc(f_) != EOF || fgetc(f_) != "\n")
-	{ 
-		linelen++;
+	if (*str2_ == '\0') 
+	{
+		return (char*)str1_;
 	}
-	char* RES = malloc(linelen * sizeof(char) + 1);
-	fseek(f_, -linelen, SEEK_CUR);
 
-	char* line = malloc(linelen * sezeof(char))
+	while (*str1_) {
+		const char* h = str1_;
+		const char* n = str2_;
 
+		while (*str1_ && *n && *str1_ == *n) 
+		{
+			str1_++;
+			n++;
+		}
+
+		if (*n == '\0') {
+			return (char*)h;
+		}
+
+		str1_ = h + 1;
+	}
+
+	return NULL;
 }
-*/
+
+
+
+char* fgetline(FILE* stream) {
+	char* line = NULL;
+	size_t size = 0;
+	size_t index = 0;
+	int c;
+
+	while ((c = fgetc(stream)) != EOF && c != '\n') {
+		if (index == size) {
+			size_t new_size = size == 0 ? 64 : size * 2;
+			char* temp = realloc(line, new_size);
+			if (temp == NULL) {
+				free(line);
+				return NULL;
+			}
+			line = temp;
+			size = new_size;
+		}
+
+		line[index++] = (char)c;
+	}
+
+	char* temp = realloc(line, index + 1);
+	if (temp == NULL) {
+		free(line);
+		return NULL; 
+	}
+	line = temp;
+	line[index] = '\0';
+
+	return line;
+}
