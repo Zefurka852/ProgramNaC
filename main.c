@@ -10,10 +10,12 @@
 #include "BullsAndCows.h"
 #include "str.h"
 #include "modul2.h"
+#include "WinterPractice.h"
+
 
 int main()
 {
-	setlocale(LC_ALL, "Rus");
+	setlocale(LC_ALL, "Russian");
 
 
 	// Проект Эйлера, задача 1
@@ -270,6 +272,21 @@ int main()
     print_cars_info(cars, num_cars);
 
     free(cars); // Освобождение выделенной динамической памяти
+	*/
+	
+
+
+	// Задание 1 из Зимней практики
+
+	/*
+	printInverseMatrix();
+	*/
+
+
+	// Задание 2 из Зимней практики
+
+	/*
+	printSolveSystem();
 	*/
 
 	return 0;
