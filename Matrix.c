@@ -204,7 +204,7 @@ double determinant(double** matrix, int size)
     {
         return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
     }
-    else 
+    else
     {
         double det = 0.0;
         for (int i = 0; i < size; i++)
@@ -214,7 +214,7 @@ double determinant(double** matrix, int size)
             {
                 for (int k = 0, l = 0; k < size; k++)
                 {
-                    if (k != i) 
+                    if (k != i)
                     {
                         submatrix[j - 1][l++] = matrix[j][k];
                     }
@@ -231,22 +231,22 @@ double determinant(double** matrix, int size)
 
 void solveSystem(double** coefficients, double* constants, int size)
 {
-    // Âû÷èñëåíèå îïðåäåëèòåëÿ ìàòðèöû êîýôôèöèåíòîâ
+    // Ð’Ñ‹Ñ‡Ð¸ÑÐ»ÐµÐ½Ð¸Ðµ Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»Ð¸Ñ‚ÐµÐ»Ñ Ð¼Ð°Ñ‚Ñ€Ð¸Ñ†Ñ‹ ÐºÐ¾ÑÑ„Ñ„Ð¸Ñ†Ð¸ÐµÐ½Ñ‚Ð¾Ð²
     double det = determinant(coefficients, size);
 
     if (det == 0)
     {
-        printf("Ñèñòåìà óðàâíåíèé âûðîæäåííàÿ, ìåòîä Êðàìåðà íå ïðèìåíèì.\n");
+        printf("Ã‘Ã¨Ã±Ã²Ã¥Ã¬Ã  Ã³Ã°Ã Ã¢Ã­Ã¥Ã­Ã¨Ã© Ã¢Ã»Ã°Ã®Ã¦Ã¤Ã¥Ã­Ã­Ã Ã¿, Ã¬Ã¥Ã²Ã®Ã¤ ÃŠÃ°Ã Ã¬Ã¥Ã°Ã  Ã­Ã¥ Ã¯Ã°Ã¨Ã¬Ã¥Ã­Ã¨Ã¬.\n");
         return;
     }
 
-    // Âûäåëåíèå ïàìÿòè ïîä âðåìåííóþ ìàòðèöó
+    // Ð’Ñ‹Ð´ÐµÐ»ÐµÐ½Ð¸Ðµ Ð¿Ð°Ð¼ÑÑ‚Ð¸ Ð¿Ð¾Ð´ Ð²Ñ€ÐµÐ¼ÐµÐ½Ð½ÑƒÑŽ Ð¼Ð°Ñ‚Ñ€Ð¸Ñ†Ñƒ
     double** tempMatrix = allocateMemoryForMatrix(size, size);
 
-    // Ðåøåíèå ñèñòåìû
+    // Ð ÐµÑˆÐµÐ½Ð¸Ðµ ÑÐ¸ÑÑ‚ÐµÐ¼Ñ‹
     for (int i = 0; i < size; i++)
     {
-        // Êîïèðîâàíèå ìàòðèöû êîýôôèöèåíòîâ
+        // ÐšÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ Ð¼Ð°Ñ‚Ñ€Ð¸Ñ†Ñ‹ ÐºÐ¾ÑÑ„Ñ„Ð¸Ñ†Ð¸ÐµÐ½Ñ‚Ð¾Ð²
         for (int j = 0; j < size; j++)
         {
             for (int k = 0; k < size; k++)
@@ -255,22 +255,22 @@ void solveSystem(double** coefficients, double* constants, int size)
             }
         }
 
-        // Çàìåíà i-ãî ñòîëáöà íà âåêòîð ñâîáîäíûõ ÷ëåíîâ
+        // Ð—Ð°Ð¼ÐµÐ½Ð° i-Ð³Ð¾ ÑÑ‚Ð¾Ð»Ð±Ñ†Ð° Ð½Ð° Ð²ÐµÐºÑ‚Ð¾Ñ€ ÑÐ²Ð¾Ð±Ð¾Ð´Ð½Ñ‹Ñ… Ñ‡Ð»ÐµÐ½Ð¾Ð²
         for (int j = 0; j < size; j++)
         {
             tempMatrix[j][i] = constants[j];
         }
 
-        // Âû÷èñëåíèå îïðåäåëèòåëÿ âðåìåííîé ìàòðèöû
+        // Ð’Ñ‹Ñ‡Ð¸ÑÐ»ÐµÐ½Ð¸Ðµ Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»Ð¸Ñ‚ÐµÐ»Ñ Ð²Ñ€ÐµÐ¼ÐµÐ½Ð½Ð¾Ð¹ Ð¼Ð°Ñ‚Ñ€Ð¸Ñ†Ñ‹
         double detTemp = determinant(tempMatrix, size);
 
-        // Ðåøåíèå äëÿ i-ãî íåèçâåñòíîãî
+        // Ð ÐµÑˆÐµÐ½Ð¸Ðµ Ð´Ð»Ñ i-Ð³Ð¾ Ð½ÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ð¾Ð³Ð¾
         double xi = detTemp / det;
 
-        // Âûâîä ðåçóëüòàòà
+        // Ð’Ñ‹Ð²Ð¾Ð´ Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚Ð°
         printf("x%d = %.2lf\n", i + 1, xi);
     }
 
-    // Îñâîáîæäåíèå ïàìÿòè
+    // ÐžÑÐ²Ð¾Ð±Ð¾Ð¶Ð´ÐµÐ½Ð¸Ðµ Ð¿Ð°Ð¼ÑÑ‚Ð¸
     freeMatrix(tempMatrix, size);
 }

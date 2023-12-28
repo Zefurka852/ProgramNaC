@@ -1,112 +1,112 @@
 /*
-@brief Выделяет память под матрицу
-@param rows: строки
-@param cols: столбцы
-@return матрица
+@brief Р’С‹РґРµР»СЏРµС‚ РїР°РјСЏС‚СЊ РїРѕРґ РјР°С‚СЂРёС†Сѓ
+@param rows: СЃС‚СЂРѕРєРё
+@param cols: СЃС‚РѕР»Р±С†С‹
+@return РјР°С‚СЂРёС†Р°
 */
 double** allocateMemoryForMatrix(int rows, int cols);
 
 /*
-@brief Выводит матрицу
-@param matrix: матрица
-@param size: размер
+@brief Р’С‹РІРѕРґРёС‚ РјР°С‚СЂРёС†Сѓ
+@param matrix: РјР°С‚СЂРёС†Р°
+@param size: СЂР°Р·РјРµСЂ
 */
 void printMatrix(double** matrix, int size);
 
 /*
-@brief Освобождает память, выделенную для матрицы
-@param matrix: матрица
-@param size: размер
+@brief РћСЃРІРѕР±РѕР¶РґР°РµС‚ РїР°РјСЏС‚СЊ, РІС‹РґРµР»РµРЅРЅСѓСЋ РґР»СЏ РјР°С‚СЂРёС†С‹
+@param matrix: РјР°С‚СЂРёС†Р°
+@param size: СЂР°Р·РјРµСЂ
 */
 void freeMatrix(double** matrix, int size);
 
 /*
-@brief Создаёт единичную матрицу того же размера
-@param size: размер
-@return единичная матрица
+@brief РЎРѕР·РґР°С‘С‚ РµРґРёРЅРёС‡РЅСѓСЋ РјР°С‚СЂРёС†Сѓ С‚РѕРіРѕ Р¶Рµ СЂР°Р·РјРµСЂР°
+@param size: СЂР°Р·РјРµСЂ
+@return РµРґРёРЅРёС‡РЅР°СЏ РјР°С‚СЂРёС†Р°
 */
 double** createIdentityMatrix(int size);
 
 /*
-@brief Копирует исходную матрицу
-@param matrix: матрица
-@param size: размер
-@return скопированная матрица
+@brief РљРѕРїРёСЂСѓРµС‚ РёСЃС…РѕРґРЅСѓСЋ РјР°С‚СЂРёС†Сѓ
+@param matrix: РјР°С‚СЂРёС†Р°
+@param size: СЂР°Р·РјРµСЂ
+@return СЃРєРѕРїРёСЂРѕРІР°РЅРЅР°СЏ РјР°С‚СЂРёС†Р°
 */
 double** copyMatrix(double** matrix, int size);
 
 /*
-@brief Ищет главный элемент матрицы
-@param matrix: матрица
-@param size: размер
-@return главный элемент
+@brief РС‰РµС‚ РіР»Р°РІРЅС‹Р№ СЌР»РµРјРµРЅС‚
+@param matrix: РјР°С‚СЂРёС†Р°
+@param size: СЂР°Р·РјРµСЂ
+@return РіР»Р°РІРЅС‹Р№ СЌР»РµРјРµРЅС‚
 */
 int searchMainElement(double** matrix, int size, int i);
 
 /*
-@brief Меняет строки местами
-@param matrix: матрица
-@param size: размер
-@param identity: едничная матрица
-@param maxIndex: главный элемент
+@brief РњРµРЅСЏРµС‚ СЃС‚СЂРѕРєРё РјРµСЃС‚Р°РјРё
+@param matrix: РјР°С‚СЂРёС†Р°
+@param size: СЂР°Р·РјРµСЂ
+@param identity: РµРґРЅРёС‡РЅР°СЏ РјР°С‚СЂРёС†Р°
+@param maxIndex: РіР»Р°РІРЅС‹Р№ СЌР»РµРјРµРЅС‚
 */
 void swappingRows(double** matrix, int size, double** identity, int i, int maxIndex);
 
 /*
-@brief Делит строки на главный элемент
-@param matrix: матрица
-@param size: размер
-@param identity: едничная матрица
-@param i: колличество строк
+@brief Р”РµР»РёС‚ СЃС‚СЂРѕРєСѓ РЅР° РіР»Р°РІРЅС‹Р№ СЌР»РµРјРµРЅС‚
+@param matrix: РјР°С‚СЂРёС†Р°
+@param size: СЂР°Р·РјРµСЂ
+@param identity: РµРґРЅРёС‡РЅР°СЏ РјР°С‚СЂРёС†Р°
+@param i: РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє
 */
 void devidingRowOnMainElement(double** matrix, int size, double** identity, int i);
 
 /*
-@brief Обнуляет элементы под главным элементом
-@param matrix: матрица
-@param size: размер
-@param identity: едничная матрица
-@param i: колличество строк
+@brief РћР±РЅСѓР»СЏРµС‚ СЌР»РµРјРµРЅС‚С‹ РїРѕРґ РіР»Р°РІРЅС‹Рј СЌР»РµРјРµРЅС‚РѕРј
+@param matrix: РјР°С‚СЂРёС†Р°
+@param size: СЂР°Р·РјРµСЂ
+@param identity: РµРґРЅРёС‡РЅР°СЏ РјР°С‚СЂРёС†Р°
+@param i: РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє
 */
 void zeroingElementsUnderMainElement(double** matrix, int size, double** identity, int i);
 
 /*
-@brief Приводит матрицу к ступенчатому виду
-@param matrix: матрица
-@param size: размер
-@param identity: едничная матрица
+@brief РџСЂРёРІРѕРґРёС‚ РјР°С‚СЂРёС†Сѓ Рє СЃС‚СѓРїРµРЅС‡Р°С‚РѕРјСѓ РІРёРґСѓ
+@param matrix: РјР°С‚СЂРёС†Р°
+@param size: СЂР°Р·РјРµСЂ
+@param identity: РµРґРЅРёС‡РЅР°СЏ РјР°С‚СЂРёС†Р°
 */
 void TriangularForm(double** matrix, int size, double** identity);
 
 /*
-@brief Обратный ход метода Гаусса
-@param matrix: матрица
-@param size: размер
-@param identity: едничная матрица
+@brief РћР±СЂР°С‚РЅС‹Р№ С…РѕРґ РјРµС‚РѕРґР° Р“Р°СѓСЃСЃР°
+@param matrix: РјР°С‚СЂРёС†Р°
+@param size: СЂР°Р·РјРµСЂ
+@param identity: РµРґРЅРёС‡РЅР°СЏ РјР°С‚СЂРёС†Р°
 */
 void ReverseMethod(double** matrix, int size, double** identity);
 
 /*
-@brief Вычисляет обратную матрицу
-@param matrix: матрица
-@param size: размер
-@return обратная матрица
+@brief Р’С‹С‡РёСЃР»СЏРµС‚ РѕР±СЂР°С‚РЅСѓСЋ РјР°С‚СЂРёС†Сѓ
+@param matrix: РјР°С‚СЂРёС†Р°
+@param size: СЂР°Р·РјРµСЂ
+@return РѕР±СЂР°С‚РЅР°СЏ РјР°С‚СЂРёС†Р°
 */
 double** inverseMatrix(double** matrix, int size);
 
 
 /*
-@brief Вычисляет определитель матрицы
-@param matrix: матрица
-@param size: размер
-@return определитель матрицы
+@brief Р’С‹С‡РёСЃР»СЏРµС‚ РѕРїСЂРµРґРµР»РёС‚РµР»СЊ РјР°С‚СЂРёС†С‹
+@param matrix: РјР°С‚СЂРёС†Р°
+@param size: СЂР°Р·РјРµСЂ
+@return РѕРїСЂРµРґРµР»РёС‚РµР»СЊ РјР°С‚СЂРёС†С‹
 */
 double determinant(double** matrix, int size);
 
 /*
-@brief Решает систему линейных уравнений методом Крамера
-@param coefficients: коэфициенты
-@param constants: константы
-@param size: размер
+@brief Р РµС€Р°РµС‚ СЃРёСЃС‚РµРјСѓ Р»РёРЅРµР№РЅС‹С… СѓСЂР°РІРЅРµРЅРёР№ РјРµС‚РѕРґРѕРј РљСЂР°РјРµСЂР°
+@param coefficients: РєРѕСЌС„РёС†РёРµРЅС‚С‹
+@param constants: РєРѕРЅСЃС‚Р°РЅС‚С‹
+@param size: СЂР°Р·РјРµСЂ
 */
 void solveSystem(double** coefficients, double* constants, int size);
