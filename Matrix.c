@@ -236,7 +236,7 @@ void solveSystem(double** coefficients, double* constants, int size)
 
     if (det == 0)
     {
-        printf("Ñèñòåìà óðàâíåíèé âûðîæäåííàÿ, ìåòîä Êðàìåðà íå ïðèìåíèì.\n");
+        printf("Система уравнений вырожденная, метод Крамера не применим.\n");
         return;
     }
 
