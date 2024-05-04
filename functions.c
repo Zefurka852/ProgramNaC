@@ -1,37 +1,33 @@
+﻿#include "functions.h"
 #include <stdbool.h>
 #include <math.h>
-#include <assert.h>
-#include <stdlib.h>
 
-#include "functions.h"
-
-long long int Prime(unsigned long long int x)
+int Prime(unsigned long long int x)
 {
-	if (x % 2 == 0)
+	if (x > 1)
+	{
+		for (long long int i = 2; i <= sqrt(x); i++)
+			if (x % i == 0)
+				return 0;
+		return 1;
+	}
+	else
 		return 0;
-
-	for (unsigned int n = 3; n < sqrt((double)x) + 1; n += 2)
-		if (x % n == 0)
-			return 0;
-
-	return 1;
 }
 
-int isPalindrome(int x) 
-{
+int isPalindrome(int x) {
 	int rev = 0, temp = x;
 	while (temp != 0) {
 		rev = rev * 10 + temp % 10;
 		temp /= 10;
 	}
 	if (rev == x) {
-		return 1; // Палиндром
+		return 1; // Ïàëèíäðîì
 	}
-	return 0; // Не палиндром
+	return 0; // Íå ïàëèíäðîì
 }
 
-long long gcd(long long a, long long b) 
-{
+long long gcd(long long a, long long b) {
 	while (b != 0) {
 		long long temp = b;
 		b = a % b;
@@ -40,47 +36,42 @@ long long gcd(long long a, long long b)
 	return a;
 }
 
-long long lcm(long long a, long long b) 
-{
+long long lcm(long long a, long long b) {
 	return (a * b) / gcd(a, b);
 }
 
-int generate_random_number(int from_, int to_)
+long long int Square(long long a_)
 {
-	assert(to_ >= from_);
-	return rand() % (to_ - from_) + from_;
+	long long int b_ = a_ * a_;
+
+	return b_;
 }
 
-void count_bulls_and_cows(int secret_number, int guess, int* bulls, int* cows)
+long long int SumSquare(int j_)
 {
-	*bulls = 0;
-	*cows = 0;
-
-	int secret_digits[4];
-	int guess_digits[4];
-
-	for (int i = 0; i < 4; ++i) 
+	long long int sum_ = 0;
+	int i_ = 1;
+	while (i_ <= j_)
 	{
-		secret_digits[i] = (secret_number / (int)pow(10, i)) % 10;
-		guess_digits[i] = (guess / (int)pow(10, i)) % 10;
+		int n1 = Square(i_);
+		sum_ += n1;
+		i_ += 1;
 	}
 
-	for (int i = 0; i < 4; ++i) 
-	{
-		if (secret_digits[i] == guess_digits[i]) 
-		{
-			(*bulls)++;
-		}
-	}
+	return sum_;
+}
 
-	for (int i = 0; i < 4; ++i) 
+long long int SquareSum(int j_)
+{
+	long long int square_ = 0;
+	long long int sum_ = 0;
+	int i_ = 1;
+	while (i_ <= j_)
 	{
-		for (int j = 0; j < 4; ++j) 
-		{
-			if (i != j && secret_digits[i] == guess_digits[j]) 
-			{
-				(*cows)++;
-			}
-		}
+		sum_ += i_;
+		i_ += 1;
 	}
+	square_ = Square(sum_);
+
+	return square_;
 }
